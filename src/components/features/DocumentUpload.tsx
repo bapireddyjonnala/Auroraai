@@ -19,7 +19,7 @@ const ALLOWED_TYPES = [
   'text/plain',
 ];
 
-const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_SIZE = 50 * 1024 * 1024; // 50MB
 
 export function DocumentUpload({ onUploadComplete }: DocumentUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
@@ -49,7 +49,7 @@ export function DocumentUpload({ onUploadComplete }: DocumentUploadProps) {
     if (file.size > MAX_SIZE) {
       toast({
         title: 'File too large',
-        description: 'Maximum file size is 10MB',
+        description: 'Maximum file size is 50MB',
         variant: 'destructive',
       });
       return;
@@ -192,7 +192,7 @@ export function DocumentUpload({ onUploadComplete }: DocumentUploadProps) {
         <div className="flex items-start gap-2 text-sm text-muted-foreground max-w-md mx-auto">
           <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
           <p className="text-left">
-            Supported formats: PDF, DOC, DOCX, TXT (Max 10MB). Documents are automatically deleted after analysis.
+            Supported formats: PDF, DOC, DOCX, TXT (Max 50MB). Large documents (100+ pages) supported with intelligent chunking. Documents are automatically deleted after analysis.
           </p>
         </div>
       </div>
